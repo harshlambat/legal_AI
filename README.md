@@ -15,7 +15,7 @@ Instead of generic AI responses, it:
 ⚙️ Architecture
 ---------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   User Query   ↓Frontend (HTML/JS)   ↓FastAPI Backend   ↓FAISS Vector Search (Semantic Retrieval)   ↓Top-K Legal Context   ↓Local LLM (Ollama - LLaMA3)   ↓Final Answer (Structured Response)   `
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   User Query         ↓   Frontend (HTML/JS)         ↓  FastAPI Backend         ↓  FAISS Vector Search (Semantic Retrieval)         ↓  Top-K Legal Context         ↓  Local LLM (Ollama - LLaMA3)         ↓  Final Answer (Structured Response)   `
 
 🔥 Features
 -----------
@@ -99,7 +99,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 ### ✅ Output
 
-*   Short Answer
+*   Paragraph Answer
     
 *   Legal Explanation
     
