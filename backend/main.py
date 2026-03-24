@@ -1,41 +1,52 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-import pandas as pd
-import requests
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
+import ollama
+from vector_store import load_index, search
 
 app = FastAPI()
 
-df = pd.read_csv("data.csv")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
+# Load FAISS
+index, documents = load_index()
 
-class Query(BaseModel):
-    message: str
-
-def get_context(query):
-    results = df[df.apply(lambda row: query.lower() in str(row).lower(), axis=1)]
-    return results.head(3).to_string()
+@app.get("/")
+def home():
+    return {"message": "Legal AI Backend Running 🚀"}
 
 @app.post("/chat")
-def chat(query: Query):
-    user_input = query.message
+async def chat(request: Request):
+    data = await request.json()
+    user_query = data.get("message", "")
 
-    context = get_context(user_input)
+    results = search(user_query, index, documents)
+    context = "\n\n".join(results)
 
     prompt = f"""
-You are a legal assistant.
+You are a legal AI assistant.
 
-Use this data:
+Use context:
+
 {context}
 
-Question:
-{user_input}
+Question: {user_query}
 """
 
-    response = requests.post(OLLAMA_URL, json={
-        "model": "llama3:instruct",
-        "prompt": prompt,
-        "stream": False
-    })
+    def generate():
+        stream = ollama.chat(
+            model="llama3:instruct",
+            messages=[{"role": "user", "content": prompt}],
+            stream=True
+        )
 
-    return {"response": response.json().get("response", "")}
+        for chunk in stream:
+            yield chunk['message']['content']
+
+    return StreamingResponse(generate(), media_type="text/plain")
