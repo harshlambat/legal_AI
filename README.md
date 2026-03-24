@@ -15,7 +15,19 @@ Instead of generic AI responses, it:
 ⚙️ Architecture
 ---------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   User Query         ↓   Frontend (HTML/JS)         ↓  FastAPI Backend         ↓  FAISS Vector Search (Semantic Retrieval)         ↓  Top-K Legal Context         ↓  Local LLM (Ollama - LLaMA3)         ↓  Final Answer (Structured Response)   `
+User Query  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Frontend (HTML/JS)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+FastAPI Backend       
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+FAISS Vector Search (Semantic Retrieval)       
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Top-K Legal Context          
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Local LLM (Ollama - LLaMA3)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Final Answer (Structured Response)  
 
 🔥 Features
 -----------
@@ -63,39 +75,43 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 -----------------------------
 
 ### 1️⃣ Clone Repository
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   git clone https://github.com/harshlambat/legal_AI.gitcd legal_AI   `
+```bash   
+   git clone https://github.com/harshlambat/legal_AI.gitcd legal_AI   
+```
 
 ### 2️⃣ Setup Backend
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd backendpip install -r requirements.txt   `
-
+```bash   
+   cd backend 
+   pip install -r requirements.txt   `
+```
 ### 3️⃣ Install Ollama
+```bash   
+   curl -fsSL https://ollama.com/install.sh | sh   `
+```
+Run model :
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   curl -fsSL https://ollama.com/install.sh | sh   `
-
-Run model:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ollama run llama3   `
+```bash   
+   ollama run llama3   `
+```
 
 ### 4️⃣ Create FAISS Index
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python create_index.py   `
-
+```bash   
+   python create_index.py   `
+```
 ### 5️⃣ Run Backend
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python -m uvicorn main:app --reload   `
-
+```bash   
+   python -m uvicorn main:app --reload   `
+```
 ### 6️⃣ Run Frontend
 
 Open:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   frontend/index.html   `
+```bash   
+    frontend/index.html   `
+```
 
 🧪 Example Query
 ----------------
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   Can I claim unclaimed land in India?   `
+```   Can I claim land in India?   ```
 
 ### ✅ Output
 
@@ -136,20 +152,6 @@ Supports deployment on:
 *   CPU-based inference can be slow
     
 *   No legal liability (informational use only)
-    
-
-🔮 Future Improvements
-----------------------
-
-*   📚 Add legal citations & references
-    
-*   ⚡ GPU acceleration for faster inference
-    
-*   🧠 Reranking models for higher accuracy
-    
-*   🌐 Multi-language legal support
-    
-*   👤 User authentication & history
     
 
 👨‍💻 Author
