@@ -76,37 +76,37 @@ Final Answer (Structured Response)
 
 ### 1️⃣ Clone Repository
 ```bash   
-   git clone https://github.com/harshlambat/legal_AI.gitcd legal_AI   
+git clone https://github.com/harshlambat/legal_AI.gitcd legal_AI
 ```
 
 ### 2️⃣ Setup Backend
 ```bash   
-   cd backend 
-   pip install -r requirements.txt   `
+cd backend 
+pip install -r requirements.txt
 ```
 ### 3️⃣ Install Ollama
 ```bash   
-   curl -fsSL https://ollama.com/install.sh | sh   `
+curl -fsSL https://ollama.com/install.sh | sh
 ```
 Run model :
 
 ```bash   
-   ollama run llama3   `
+ollama run llama3   
 ```
 
 ### 4️⃣ Create FAISS Index
 ```bash   
-   python create_index.py   `
+python create_index.py   
 ```
 ### 5️⃣ Run Backend
 ```bash   
-   python -m uvicorn main:app --reload   `
+python -m uvicorn main:app --reload
 ```
 ### 6️⃣ Run Frontend
 
 Open:
 ```bash   
-    frontend/index.html   `
+frontend/index.html
 ```
 
 🧪 Example Query
